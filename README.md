@@ -14,10 +14,10 @@ Repositório para o desenvolvimento do Trabalho 2 - Segurança da disciplina de 
 
 Link inicial: http://localhost:8080/edauth/
 
-Rota 1:
-URL: http://localhost:8080/edauth/api/artigos
-Método: GET
-Descrição: retorna uma lista com livros.
+Rota 1:  
+URL: http://localhost:8080/edauth/api/artigos  
+Método: GET  
+Descrição: retorna uma lista com livros.  
 
 Rota 2:  
 URL: http://localhost:8080/edauth/api/artigos  

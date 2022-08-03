@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Editora - Listagem de Artigos</title>
+        
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css">
+    </head>
+    <body>
+        <section class="section">
+            <div class="container has-text-centered">
+                <div>
+                    <h1 class="title">Listagem de artigos - Editora</h1>
+                    <div sec:authorize="isAuthenticated()">
+                        <div class="box">
+                            Hello, <strong th:text="${#authentication.principal.email}"></strong>
+                        </div>
+                    </div>
+                    <div sec:authorize="isAuthenticated()">
+                        <form action="#" method="post" th:action="@{/api/artigos}" th:object="${artigo}">
+                        </br>
+                            <div>
+                                <label for="titulo">Título:</label>
+                                <input type="text" th:field="*{titulo}" id="titulo" placeholder="Título" >
+                            </div>
+                        </br>
+                            <div>
+                                <label for="resumo">Resumo:</label>
+                                <textarea id="resumo" name="resumo" th:field="*{resumo}"></textarea>
+                            </div>
+                        </br>
+                        <div>
+                            <label for="status">Publicado:</label>
+                            <input type="number" id="status" maxlength="1" min="0" max="1" value="1" name="status" th:field="*{status}">
+                        </div>
+                    </br>
+                            <input type="submit" class="btn btn-danger" value="SALVAR ARTIGO"/>
+                        </form>
+                    </div>
+                    <div sec:authorize="isAuthenticated()" th:fragment="form">
+                        <table>
+                            <thead>
+                            <th>Titulo</th>
+                            <th style='padding-left:20px'>Resumo</th>
+                            <th style='padding-left:20px'>Foi publicado?</th>
+                            <tr th:each = "artigo : ${artigos}">
+                                <td><span th:text = "${artigo.titulo}"></span></td>
+                                <td style='padding-left:20px'><span th:text = "${artigo.resumo}"></span></td>
+                                <td style='padding-left:20px'><span th:text = "${artigo.status}"></span></td>
+                            </tr>
+                        </thead>
+                        </table>
+                        <a href="/form"><button>Adicionar Artigo</button></a>
+                    </div>
+                </div>
+            </div>
+        </section>  
+    </body>
+
+  </html>  

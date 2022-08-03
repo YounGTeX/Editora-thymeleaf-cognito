@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Editora - Listagem de Artigos</title>
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+        <link rel="stylesheet" href="css/styles.css">
+    </head>
+    <body>
+        <section class="section">
+            <div class="container has-text-centered">
+                <div>
+                    <h1 class="title">SecAuth - OAuth2 Spring Security Cognito Login</h1>
+                    <div sec:authorize="isAuthenticated()">
+                        <div class="box">
+                            Hello, <strong th:text="${#authentication.principal.email}"></strong>
+                        </div>
+                    </div>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <div class="box" sec:authorize="isAuthenticated()">
+                        <br/>
+                        <h1>Postar Artigo</h1>
+                        <br/>
+                        <form th:action="@{/api/artigos}" method="post">
+                            <label>Titulo</label>
+                            <input type="text" name="titulo">
+                            <label>Resumo</label>
+                            <input type="text" name="resumo">
+                            <input type="hidden" class="form-control" name="status" value ="true">
+                            <input class="btn btn-primary btn-sm" type="submit" value="Salvar">
+                       </form>
+                    </div>
+                       <br/>
+                       <br/>
+                       <br/>
+                       <div class="box" sec:authorize="isAuthenticated()">
+                       <h1>Listar todos os artigos</h1>
+                       <p>Lista todos os artigos publicados e não publicados</p>
+                            <form method="get" th:action="@{/api/artigos}">
+                                <input type="submit" class="btn btn-primary" value="Listar artigos"/>
+                            </form>
+                        </div>
+                    <!-- <br/>
+                    <br/>
+                    <br/>  
+                    <div class="box" sec:authorize="isAuthenticated()">
+                        <br/>
+                        <h1>Listar apenas artigos publicados</g1>
+                            <form th:action="@{/api/artigos}" method="get">
+                                <input type="submit" class="btn btn-primary" value="Listar todos os artigos publicados"/>
+                           </form>
+                        </div> -->
+                    </div>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <div class="box" sec:authorize="isAuthenticated()">
+                        <h2>Buscar Artigo por ID</h2>
+                        <form method="get" th:action="@{/api/artigos/{id}}" >
+                            <label>ID</label>
+                            <input type="text" id="id" name="id" placeholder="id"/> 
+                            <input type="submit" class="btn btn-primary" value="Buscar"/>
+                        </form>
+                    </div>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <div class="box" sec:authorize="isAuthenticated()">
+                        <h2>Editar artigo por ID</h2>
+                        <form method="put" th:action="@{/api/artigos/{id}}" >
+                            <label>ID</label>
+                            <input type="number" id="id" name="id" placeholder="id"/> 
+                            <label>Titulo</label>
+                            <input type="text" name="titulo">
+                            <label>Resumo</label>
+                            <input type="text" name="resumo">
+                            <input type="hidden" class="form-control" name="publicado" value ="true">
+                            <input type="submit" class="btn btn-primary" value="Editar"/>
+                        </form>
+                    </div>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <div class="box" sec:authorize="isAuthenticated()">
+                        <br/>
+                        <h1>Deletar artigo por id</h1>
+                        <br/>
+                        <form th:action="@{/api/artigos/{id}}" method="delete">
+                            <label>ID</label>
+                            <input type="long" name="id" placeholder="id"/> 
+                            <input type="submit" class="btn btn-primary" value="Deletar"/>
+                       </form>
+                    </div>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <div class="box" sec:authorize="isAuthenticated()">
+                        <br/>
+                        <h1>Deletar todos os artigos</h1>
+                        <br/>
+                        <form method="get" th:action="@{/api/artigos/publicados}">
+                            <input type="submit" class="btn btn-danger" value="DELETAR TODOS OS ARTIGOS"/>
+                        </form>
+                    </div>
+                    <br/>
+                    <div sec:authorize="isAuthenticated()">
+                        <form method="post" th:action="@{/logout}" >
+                          <input type="submit" class="btn btn-danger" value="Logout"/>
+                        </form>
+                    </div>
+                    <div sec:authorize="isAnonymous()">
+                        <div class="box">
+                            <a class="button login is-primary"
+                                th:href="@{/oauth2/authorization/cognito}">SecAuth</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>  
+    </body>
+
+  </html>   

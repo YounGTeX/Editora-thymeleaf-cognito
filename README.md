@@ -51,11 +51,11 @@ Método: DELETE
 Descrição: lista todos os artigos cujo status=true.  
   
 Rota 6:  
-URL: http://localhost:8080/edauth/api/artigos/publicados
+URL: http://localhost:8080/edauth/api/artigos/publicados  
 Método: GET  
 Descrição: deleta todos os livros.  
   
 Rota 7:  
-URL: http://localhost:8080/edauth/api/artigos/publicados/{id}
+URL: http://localhost:8080/edauth/api/artigos/publicados/{id}  
 Método: GET  
 Descrição: deleta o livro com id correspondente.  

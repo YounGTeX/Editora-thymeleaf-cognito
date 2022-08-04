@@ -40,10 +40,10 @@ URL: http://localhost:8080/edauth/api/artigos/{id}
 Método: GET  
 Descrição: lista um artigo na lista de acordo com o ID fornecido.  
 
-Rota 4:
-URL: http://localhost:8080/edauth/api/editar{id}{titulo}{resumo}
-Método: GET
-Descrição: edita um artigo na lista de acordo com o ID, titulo e reusmo fornecido.
+Rota 4:  
+URL: http://localhost:8080/edauth/api/editar{id}{titulo}{resumo}  
+Método: GET  
+Descrição: edita um artigo na lista de acordo com o ID, titulo e reusmo fornecido.  
 
 Rota 5:  
 URL: http://localhost:8080/edauth/api/artigos  

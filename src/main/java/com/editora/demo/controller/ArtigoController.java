@@ -92,13 +92,4 @@ public ModelAndView excluirArtigo(@PathParam("id") String id) {
   _artigoRepository.deleteById(value1);
   return modelD1;
 }
-// public ResponseEntity<Object> DeleteById(@PathParam("id") long id) {
-//   Optional<Artigo> artigo = _artigoRepository.findById(id);
-//   if(artigo.isPresent()){
-//     _artigoRepository.delete(artigo.get());
-//     return new ResponseEntity<>(HttpStatus.OK);
-//   }
-//   else
-//     return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-// }
 }

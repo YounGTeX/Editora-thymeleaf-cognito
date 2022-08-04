@@ -55,59 +55,20 @@ public class ArtigoController {
 		modelB.addObject("artigos", artigoId.get());
 		return modelB;
 }
-  // public ResponseEntity<Artigo> GetById(@PathParam("id") String id) {
-  //   long value1 = Long.parseLong(id);
-  //   Optional<Artigo> artigo = _artigoRepository.findById(value1);
-  //   if(artigo.isPresent())
-  //     return new ResponseEntity<Artigo>(artigo.get(), HttpStatus.OK);
-  //   else
-  //     return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-  // }
 
-  @PutMapping("/{id}") // ATUALIZAR POR ID
-  public ModelAndView editById(@PathParam("id") String id, Artigo newArtigo) {
+  @GetMapping("/editar/{id}{titulo}{resumo}") // ATUALIZAR POR ID
+  public ModelAndView editById(@PathParam("id") String id,@PathParam("titulo") String titulo,@PathParam("resumo") String resumo /*Artigo newArtigo*/) {
     long value1 = Long.parseLong(id);
+    System.out.println(id);
     ModelAndView modelEd = new ModelAndView("edit");
     Optional<Artigo> oldArtigo = _artigoRepository.findById(value1);
     Artigo artigo = oldArtigo.get();
-      artigo.setTitulo(newArtigo.getTitulo());
-      artigo.setResumo(newArtigo.getResumo());
-      artigo.setStatus(newArtigo.getStatus());
-		modelEd.addObject("artigos", artigo);
-		return modelEd;
+      artigo.setTitulo(titulo);
+      artigo.setResumo(resumo);
+      _artigoRepository.save(artigo);
+		  modelEd.addObject("artigos", artigo);
+      return modelEd;
 }
-  // public ResponseEntity<Artigo> Put(@PathParam("id") long id, Artigo newArtigo) {
-  //   Optional<Artigo> oldArtigo = _artigoRepository.findById(id);
-  //   if (oldArtigo.isPresent()) {
-  //     Artigo artigo = oldArtigo.get();
-
-  //     artigo.setTitulo(newArtigo.getTitulo());
-  //     artigo.setResumo(newArtigo.getResumo());
-  //     artigo.setStatus(newArtigo.getStatus());
-
-  //     _artigoRepository.save(artigo);
-  //     return new ResponseEntity<Artigo>(artigo, HttpStatus.OK);
-  //   }
-  //   else
-  //     return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-  // }
-
-  @DeleteMapping("/{id}") // DELETAR POR ID
-  public ModelAndView excluirArtigo(@PathVariable("id") String id) {
-    ModelAndView modelD = new ModelAndView("delete");
-		long value1 = Long.parseLong(id);
-		_artigoRepository.deleteById(value1);
-		return modelD;
-	}
-  // public ResponseEntity<Object> DeleteById(@PathParam("id") long id) {
-  //   Optional<Artigo> artigo = _artigoRepository.findById(id);
-  //   if(artigo.isPresent()){
-  //     _artigoRepository.delete(artigo.get());
-  //     return new ResponseEntity<>(HttpStatus.OK);
-  //   }
-  //   else
-  //     return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-  // }
 
   @DeleteMapping() // LISTAR TODOS OS ARTIGOS PUBLICADOS
   public ModelAndView listarTodosArtigosPublicados() {
@@ -123,4 +84,21 @@ public class ArtigoController {
     _artigoRepository.deleteAll();
 		return modelL;
 }
+
+@GetMapping("/publicados/{id}") // DELETAR POR ID
+public ModelAndView excluirArtigo(@PathVariable("id") String id) {
+  long value1 = Long.parseLong(id);
+  ModelAndView modelD1 = new ModelAndView("delete");
+  _artigoRepository.deleteById(value1);
+  return modelD1;
+}
+// public ResponseEntity<Object> DeleteById(@PathParam("id") long id) {
+//   Optional<Artigo> artigo = _artigoRepository.findById(id);
+//   if(artigo.isPresent()){
+//     _artigoRepository.delete(artigo.get());
+//     return new ResponseEntity<>(HttpStatus.OK);
+//   }
+//   else
+//     return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+// }
 }

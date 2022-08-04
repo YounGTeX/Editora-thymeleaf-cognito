@@ -64,14 +64,14 @@
                     <br/>
                     <div class="box" sec:authorize="isAuthenticated()">
                         <h2>Editar artigo por ID</h2>
-                        <form method="put" th:action="@{/api/artigos/{id}}" >
+                        <form method="get" th:action="@{/api/artigos/editar/{id}}" >
                             <label>ID</label>
                             <input type="number" id="id" name="id" placeholder="id"/> 
                             <label>Titulo</label>
-                            <input type="text" name="titulo">
+                            <input type="text" id="titulo" name="titulo">
                             <label>Resumo</label>
-                            <input type="text" name="resumo">
-                            <input type="hidden" class="form-control" name="publicado" value ="true">
+                            <input type="text" id="resumo" name="resumo">
+                            <input type="hidden" class="form-control" name="status" value ="true">
                             <input type="submit" class="btn btn-primary" value="Editar"/>
                         </form>
                     </div>
@@ -82,10 +82,10 @@
                         <br/>
                         <h1>Deletar artigo por id</h1>
                         <br/>
-                        <form th:action="@{/api/artigos/{id}}" method="delete">
+                        <form th:action="@{/api/artigos/publicados{id}}" method="get">
                             <label>ID</label>
                             <input type="long" name="id" placeholder="id"/> 
-                            <input type="submit" class="btn btn-primary" value="Deletar"/>
+                            <input type="submit" class="btn btn-danger" value="Deletar"/>
                        </form>
                     </div>
                     <br/>

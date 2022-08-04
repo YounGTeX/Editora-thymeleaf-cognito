@@ -57,7 +57,7 @@ URL: http://localhost:8080/edauth/api/artigos/publicados/{id}
 Método: DELETE  
 Descrição: Deleta da lista o livro correspondente ao ID fornecido.  
   
-Rota 6:  
+Rota 5:  
 URL: http://localhost:8080/edauth/api/artigos/{id}  
 Método: GET  
 Descrição: retorna o livro com ID correspondente.  

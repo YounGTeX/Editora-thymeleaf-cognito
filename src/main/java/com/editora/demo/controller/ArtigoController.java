@@ -48,11 +48,11 @@ public class ArtigoController {
 }
 
   @GetMapping("/{id}") // RECUPERAR POR ID
-  public ModelAndView getByTitulo(@PathParam("id") String id) {
+  public ModelAndView getByID(@PathParam("id") String id) {
     long value1 = Long.parseLong(id);
     ModelAndView modelB = new ModelAndView("buscaId");
 		Optional<Artigo> artigoId = _artigoRepository.findById(value1);
-		modelB.addObject("artigos", artigoId);
+		modelB.addObject("artigos", artigoId.get());
 		return modelB;
 }
   // public ResponseEntity<Artigo> GetById(@PathParam("id") String id) {

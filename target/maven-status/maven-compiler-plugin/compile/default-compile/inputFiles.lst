@@ -1,8 +1,8 @@
-C:\editora-git\Editora-thymeleaf-cognito\src\main\java\com\editora\demo\CognitoOidcLogoutSuccessHandler.java
-C:\editora-git\Editora-thymeleaf-cognito\src\main\java\com\editora\demo\entity\Artigo.java
-C:\editora-git\Editora-thymeleaf-cognito\src\main\java\com\editora\demo\controller\SecController.java
-C:\editora-git\Editora-thymeleaf-cognito\src\main\java\com\editora\demo\controller\HomeController.java
-C:\editora-git\Editora-thymeleaf-cognito\src\main\java\com\editora\demo\SecurityConfiguration.java
-C:\editora-git\Editora-thymeleaf-cognito\src\main\java\com\editora\demo\controller\ArtigoController.java
-C:\editora-git\Editora-thymeleaf-cognito\src\main\java\com\editora\demo\repository\ArtigoRepository.java
-C:\editora-git\Editora-thymeleaf-cognito\src\main\java\com\editora\demo\EditoraApplication.java
+C:\editora\Editora-thymeleaf-cognito\src\main\java\com\editora\demo\entity\Artigo.java
+C:\editora\Editora-thymeleaf-cognito\src\main\java\com\editora\demo\EditoraApplication.java
+C:\editora\Editora-thymeleaf-cognito\src\main\java\com\editora\demo\controller\SecController.java
+C:\editora\Editora-thymeleaf-cognito\src\main\java\com\editora\demo\repository\ArtigoRepository.java
+C:\editora\Editora-thymeleaf-cognito\src\main\java\com\editora\demo\controller\ArtigoController.java
+C:\editora\Editora-thymeleaf-cognito\src\main\java\com\editora\demo\controller\HomeController.java
+C:\editora\Editora-thymeleaf-cognito\src\main\java\com\editora\demo\CognitoOidcLogoutSuccessHandler.java
+C:\editora\Editora-thymeleaf-cognito\src\main\java\com\editora\demo\SecurityConfiguration.java

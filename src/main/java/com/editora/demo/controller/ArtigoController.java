@@ -86,7 +86,7 @@ public class ArtigoController {
 }
 
 @GetMapping("/publicados/{id}") // DELETAR POR ID
-public ModelAndView excluirArtigo(@PathVariable("id") String id) {
+public ModelAndView excluirArtigo(@PathParam("id") String id) {
   long value1 = Long.parseLong(id);
   ModelAndView modelD1 = new ModelAndView("delete");
   _artigoRepository.deleteById(value1);

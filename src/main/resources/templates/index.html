@@ -82,7 +82,7 @@
                         <br/>
                         <h1>Deletar artigo por id</h1>
                         <br/>
-                        <form th:action="@{/api/artigos/publicados{id}}" method="get">
+                        <form th:action="@{/api/artigos/publicados/{id}}" method="get">
                             <label>ID</label>
                             <input type="long" name="id" placeholder="id"/> 
                             <input type="submit" class="btn btn-danger" value="Deletar"/>

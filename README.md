@@ -37,32 +37,25 @@ Body:
   
 Rota 3:  
 URL: http://localhost:8080/edauth/api/artigos/{id}  
-Método: PUT  
-Descrição: edita um artigo na lista de acordo com o ID fornecido.  
-Body:  
-{  
-  "id": 74,  
-  "titulo": "Eragon",  
-  "resumo": "Um antigo Cavaleiro de Dragão que traiu seu povo e seus companheiros em busca de poder.",  
-  "status": "true"  
-}  
-
-Rota 4:
-URL: http://localhost:8080/edauth/api/artigos/publicados
-Método: DELETE
-Descrição: delete todos os artigos presentes na lista.
+Método: GET  
+Descrição: lista um artigo na lista de acordo com o ID fornecido.  
 
 Rota 4:  
-URL: http://localhost:8080/edauth/api/artigos/publicados/{id}  
-Método: DELETE  
-Descrição: Deleta da lista o livro correspondente ao ID fornecido.  
-  
-Rota 5:  
-URL: http://localhost:8080/edauth/api/artigos/{id}  
+URL: http://localhost:8080/edauth/api/editar{id}{titulo}{resumo}  
 Método: GET  
-Descrição: retorna o livro com ID correspondente.  
+Descrição: edita um artigo na lista de acordo com o ID, titulo e reusmo fornecido.  
+
+Rota 5:  
+URL: http://localhost:8080/edauth/api/artigos  
+Método: DELETE  
+Descrição: lista todos os artigos cujo status=true.  
   
 Rota 6:  
 URL: http://localhost:8080/edauth/api/artigos/publicados  
 Método: GET  
-Descrição: retorna todos os livros cujo status seja true.  
+Descrição: deleta todos os livros.  
+  
+Rota 7:  
+URL: http://localhost:8080/edauth/api/artigos/publicados/{id}  
+Método: GET  
+Descrição: deleta o livro com id correspondente.  

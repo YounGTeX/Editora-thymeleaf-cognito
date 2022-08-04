@@ -52,6 +52,11 @@ public class ArtigoController {
     long value1 = Long.parseLong(id);
     ModelAndView modelB = new ModelAndView("buscaId");
 		Optional<Artigo> artigoId = _artigoRepository.findById(value1);
+    if(!artigoId.isPresent()){
+      ModelAndView modelErro = new ModelAndView("erroId");
+      modelErro.addObject("artigos", id);
+      return modelErro;
+    }
 		modelB.addObject("artigos", artigoId.get());
 		return modelB;
 }
@@ -62,6 +67,11 @@ public class ArtigoController {
     System.out.println(id);
     ModelAndView modelEd = new ModelAndView("edit");
     Optional<Artigo> oldArtigo = _artigoRepository.findById(value1);
+    if(!oldArtigo.isPresent()){
+      ModelAndView modelErro = new ModelAndView("erroId");
+      modelErro.addObject("artigos", id);
+      return modelErro;
+    }
     Artigo artigo = oldArtigo.get();
       artigo.setTitulo(titulo);
       artigo.setResumo(resumo);
@@ -89,6 +99,12 @@ public class ArtigoController {
 public ModelAndView excluirArtigo(@PathParam("id") String id) {
   long value1 = Long.parseLong(id);
   ModelAndView modelD1 = new ModelAndView("delete");
+  Optional<Artigo> deleteArtigo = _artigoRepository.findById(value1);
+  if(!deleteArtigo.isPresent()){
+    ModelAndView modelErro = new ModelAndView("erroId");
+    modelErro.addObject("artigos", id);
+    return modelErro;
+  }
   _artigoRepository.deleteById(value1);
   return modelD1;
 }

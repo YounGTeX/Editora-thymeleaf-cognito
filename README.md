@@ -12,6 +12,10 @@ Repositório para o desenvolvimento do Trabalho 2 - Segurança da disciplina de 
 
 # Documentação
 
+Antes de inicializar a aplicação, lembre de colocar o application.properties com suas credenciais do Amazon AWS nos seguintes diretórios:  
+src/main/resources/application.properties  
+target/classes/application.properties  
+
 Link inicial: http://localhost:8080/edauth/
 
 Rota 1:  

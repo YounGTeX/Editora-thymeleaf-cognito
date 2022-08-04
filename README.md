@@ -12,6 +12,10 @@ Repositório para o desenvolvimento do Trabalho 2 - Segurança da disciplina de 
 
 # Documentação
 
+Antes de inicializar a aplicação, lembre de colocar o application.properties com suas credenciais do Amazon AWS nos seguintes diretórios:  
+src/main/resources/application.properties  
+target/classes/application.properties  
+
 Link inicial: http://localhost:8080/edauth/
 
 Rota 1:  
@@ -53,7 +57,7 @@ URL: http://localhost:8080/edauth/api/artigos/publicados/{id}
 Método: DELETE  
 Descrição: Deleta da lista o livro correspondente ao ID fornecido.  
   
-Rota 6:  
+Rota 5:  
 URL: http://localhost:8080/edauth/api/artigos/{id}  
 Método: GET  
 Descrição: retorna o livro com ID correspondente.  
